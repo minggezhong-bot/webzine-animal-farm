@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dorm Garden Diary</title>
+  <link rel="stylesheet" href="../assets/site.css">
+
+  <style>
+    :root{
+      --bg:#ffd4e8;
+      --ink:#111;
+      --muted:#666;
+      --line:rgba(0,0,0,.12);
+      --card:#ccff00;
+    }
+
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--ink);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      line-height:1.5;
+    }
+
+    .page{
+      width:min(1100px, 92vw);
+      margin:32px auto 64px;
+    }
+
+    header{
+      display:flex;
+      gap:16px;
+      align-items:baseline;
+      justify-content:space-between;
+      border-bottom:1px solid var(--line);
+      padding-bottom:12px;
+      margin-bottom:18px;
+    }
+
+    header h1{
+      margin:0;
+      font-size:22px;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+    }
+
+    header p{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    /* hero video */
+    .heroVideo{
+      margin: 0 0 22px;
+      border: 1px solid var(--line);
+      background: transparent;
+    }
+    .heroVideo video{
+      width:100%;
+      height:auto;
+      display:block;
+    }
+    .heroVideo.isBanner video{
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+    }
+
+    /* timeline */
+    .timeline{
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+    }
+
+    .entry{
+      border:1px solid var(--line);
+      overflow:hidden;
+      background:transparent;
+    }
+
+    .entryHead{
+      display:flex;
+      gap:14px;
+      align-items:flex-start;
+      padding:16px 16px 10px;
+      background:transparent;
+    }
+
+    .date{
+      flex:0 0 auto;
+      font-weight:700;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+      font-size:12px;
+      padding:4px 0;
+      border:1px solid var(--line);
+      background:transparent;
+      white-space:nowrap;
+      min-width:64px;
+      text-align:center;
+    }
+
+    .text{
+      margin:0;
+      font-size:15px;
+    }
+
+    .text .muted{
+      color:var(--muted);
+    }
+
+    /* diary lines */
+    .lines{
+      padding:0 16px 14px;
+      margin:0;
+      list-style:none;
+      display:grid;
+      gap:4px;
+      color:var(--ink);
+    }
+
+    .lines li{
+      margin:0;
+    }
+
+    /* photo grid */
+    .photos{
+      padding:0 16px 16px;
+      display:grid;
+      gap:12px;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 720px){
+      .photos{ grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (min-width: 980px){
+      .photos{ grid-template-columns: repeat(4, 1fr); }
+    }
+
+    .ph{
+      overflow:hidden;
+      border:1px solid var(--line);
+      background:transparent;
+      aspect-ratio: 4 / 5;
+      position:relative;
+    }
+
+    .ph img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      transform:scale(1.01);
+    }
+
+    .cap{
+      position:absolute;
+      left:8px;
+      bottom:8px;
+      font-size:11px;
+      color:var(--ink);
+      background:transparent;
+      padding:0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <header>
+      <h1>Dorm Garden Diary</h1>
+  
+    </header>
+
+    <!-- VIDEO (put your mp4 in assets/garden/1.mp4) -->
+    <div class="heroVideo isBanner">
+      <video
+        src="../assets/garden/1.mp4"
+        controls
+        playsinline
+        muted
+        loop
+        preload="metadata"
+      ></video>
+    </div>
+
+    <section class="timeline">
+
+      <!-- Entry 1 -->
+      <article class="entry">
+        <div class="entryHead">
+          <div class="date">Jan 16</div>
+          <p class="text"><span class="muted"></span></p>
+        </div>
+        <ul class="lines">
+          <li>New Haven winter feels long and gray</li>
+          <li>I miss sunlight</li>
+          <li>On my birthday a friend gives me a small countertop garden</li>
+          <li>I place it in my dorm like a tiny window</li>
+          <li>I fill the water</li>
+          <li>I turn on the light</li>
+          <li>I feel better right away</li>
+        </ul>
+        <div class="photos">
+          <figure class="ph"><img src="../assets/garden/1.jpeg" alt=""><figcaption class="cap">01</figcaption></figure>
+          <figure class="ph"><img src="../assets/garden/2.jpeg" alt=""><figcaption class="cap">02</figcaption></figure>
+          <figure class="ph"><img src="../assets/garden/3.jpeg" alt=""><figcaption class="cap">03</figcaption></figure>
+        </div>
+      </article>
+
+      <!-- Entry 2 -->
+      <article class="entry">
+        <div class="entryHead">
+          <div class="date">Jan 18</div>
+          <p class="text"><span class="muted"></span></p>
+        </div>
+        <ul class="lines">
+          <li>I plant chives cilantro dill and parsley</li>
+          <li>It feels like planting future meals</li>
+          <li>I keep checking the pods</li>
+          <li>I talk to the seeds like they can hear me</li>
+          <li>I tell them please grow</li>
+          <li>Outside is cold</li>
+          <li>Inside is warm and pink from the lamp</li>
+        </ul>
+        <div class="photos">
+          <figure class="ph"><img src="../assets/garden/4.jpeg" alt=""><figcaption class="cap">04</figcaption></figure>
+          <figure class="ph"><img src="../assets/garden/5.jpeg" alt=""><figcaption class="cap">05</figcaption></figure>
+          <figure class="ph"><img src="../assets/garden/6.jpeg" alt=""><figcaption class="cap">06</figcaption></figure>
+        </div>
+      </article>
+
+      <!-- Entry 3 -->
+      <article class="entry">
+        <div class="entryHead">
+          <div class="date">Jan 21</div>
+          <p class="text"><span class="muted"></span></p>
+        </div>
+        <ul class="lines">
+          <li>The first sprout appears</li>
+          <li>It is very small</li>
+          <li>But it is real</li>
+          <li>I take a photo</li>
+          <li>I feel proud for no reason</li>
+          <li>I start checking the garden too often</li>
+          <li>I watch every tiny change</li>
+          <li>It becomes my daily routine</li>
+        </ul>
+        <div class="photos">
+          <figure class="ph"><img src="../assets/garden/7.jpeg" alt=""><figcaption class="cap">07</figcaption></figure>
+          <figure class="ph"><img src="../assets/garden/8.jpeg" alt=""><figcaption class="cap">08</figcaption></figure>
+          <figure class="ph"><img src="../assets/garden/9.jpeg" alt=""><figcaption class="cap">09</figcaption></figure>
+        </div>
+      </article>
+
+      <!-- Entry 4 -->
+      <article class="entry">
+        <div class="entryHead">
+          <div class="date">Jan 24</div>
+          <p class="text"><span class="muted"></span></p>
+        </div>
+        <ul class="lines">
+          <li>Chives grow straight and calm</li>
+          <li>Dill grows soft and wild</li>
+          <li>Parsley and cilantro take their time</li>
+          <li>They look shy at first</li>
+          <li>The light makes everything look like a little stage</li>
+          <li>My dorm corner becomes greener</li>
+          <li>I feel less stuck in winter</li>
+        </ul>
+        <div class="photos">
+          <figure class="ph"><img src="../assets/garden/10.jpeg" alt=""><figcaption class="cap">10</figcaption></figure>
+          <figure class="ph"><img src="../assets/garden/11.jpeg" alt=""><figcaption class="cap">11</figcaption></figure>
+          <figure class="ph"><img src="../assets/garden/12.jpeg" alt=""><figcaption class="cap">12</figcaption></figure>
+        </div>
+      </article>
+
+      <!-- Entry 5 -->
+      <article class="entry">
+        <div class="entryHead">
+          <div class="date">Jan 29</div>
+          <p class="text"><span class="muted"></span></p>
+        </div>
+        <ul class="lines">
+          <li>The plants get taller</li>
+          <li>Dill starts taking too much space</li>
+          <li>I trim a little</li>
+          <li>I feel guilty for one second</li>
+          <li>Then I smell the fresh herbs</li>
+          <li>I put them in food</li>
+          <li>Suddenly my dinner feels brighter</li>
+        </ul>
+        <div class="photos">
+          <figure class="ph"><img src="../assets/garden/13.jpeg" alt=""><figcaption class="cap">13</figcaption></figure>
+          <figure class="ph"><img src="../assets/garden/14.jpeg" alt=""><figcaption class="cap">14</figcaption></figure>
+          <figure class="ph"><img src="../assets/garden/15.jpeg" alt=""><figcaption class="cap">15</figcaption></figure>
+        </div>
+      </article>
+
+      <!-- Entry 6 -->
+      <article class="entry">
+        <div class="entryHead">
+          <div class="date">Feb 1</div>
+          <p class="text"><span class="muted"></span></p>
+        </div>
+        <ul class="lines">
+          <li>I start a side project</li>
+          <li>Mung bean sprouts</li>
+          <li>I soak the beans</li>
+          <li>I rinse them</li>
+          <li>I cover them</li>
+          <li>I repeat</li>
+          <li>A few days later they explode into a dense messy pile</li>
+          <li>Some look pale yellow</li>
+          <li>But they are crisp and alive</li>
+          <li>I feel like I made a small miracle in a bowl</li>
+        </ul>
+        <div class="photos">
+          <figure class="ph"><img src="../assets/garden/16.jpeg" alt=""><figcaption class="cap">16</figcaption></figure>
+          <figure class="ph"><img src="../assets/garden/17.jpeg" alt=""><figcaption class="cap">17</figcaption></figure>
+          <figure class="ph"><img src="../assets/garden/18.jpeg" alt=""><figcaption class="cap">18</figcaption></figure>
+        </div>
+      </article>
+
+      <!-- Entry 7 -->
+      <article class="entry">
+        <div class="entryHead">
+          <div class="date">Feb 5</div>
+          <p class="text"><span class="muted"></span></p>
+        </div>
+        <ul class="lines">
+          <li>I add basil and mint</li>
+          <li>Now I have two systems</li>
+          <li>The machine is stable and neat</li>
+          <li>The pots feel freer and more unpredictable</li>
+          <li>Every morning I check water and leaves</li>
+          <li>It is a simple kind of care</li>
+          <li>It makes my day start softer</li>
+        </ul>
+        <div class="photos">
+          <figure class="ph"><img src="../assets/garden/19.jpeg" alt=""><figcaption class="cap">19</figcaption></figure>
+          <figure class="ph"><img src="../assets/garden/20.jpeg" alt=""><figcaption class="cap">20</figcaption></figure>
+          <figure class="ph"><img src="../assets/garden/21.jpeg" alt=""><figcaption class="cap">21</figcaption></figure>
+        </div>
+      </article>
+
+      <!-- Entry 8 -->
+      <article class="entry">
+        <div class="entryHead">
+          <div class="date">Feb 10</div>
+          <p class="text"><span class="muted"></span></p>
+        </div>
+        <ul class="lines">
+          <li>Outside winter is still winter</li>
+          <li>But inside I have my own season</li>
+          <li>I watch new leaves appear</li>
+          <li>I watch stems reach up</li>
+          <li>I cut herbs and use them</li>
+          <li>I do not need a big garden</li>
+          <li>I just need a small green proof that time is moving</li>
+        </ul>
+        <div class="photos">
+          <figure class="ph"><img src="../assets/garden/22.jpeg" alt=""><figcaption class="cap">22</figcaption></figure>
+          <figure class="ph"><img src="../assets/garden/23.jpeg" alt=""><figcaption class="cap">23</figcaption></figure>
+          <figure class="ph"><img src="../assets/garden/24.jpeg" alt=""><figcaption class="cap">24</figcaption></figure>
+          <figure class="ph"><img src="../assets/garden/25.jpeg" alt=""><figcaption class="cap">25</figcaption></figure>
+        </div>
+      </article>
+
+      <!-- Entry 9 -->
+      <article class="entry">
+        <div class="entryHead">
+          <div class="date">Feb 16</div>
+          <p class="text"><span class="muted"></span></p>
+        </div>
+        <ul class="lines">
+          <li>More light helps</li>
+          <li>Too much crowding makes them weak</li>
+          <li>A little trimming is kind</li>
+          <li>Fresh herbs change simple food</li>
+          <li>The best part is not the harvest</li>
+          <li>The best part is the daily looking</li>
+        </ul>
+        <div class="photos">
+          <figure class="ph"><img src="../assets/garden/26.jpeg" alt=""><figcaption class="cap">26</figcaption></figure>
+          <figure class="ph"><img src="../assets/garden/27.jpeg" alt=""><figcaption class="cap">27</figcaption></figure>
+        </div>
+      </article>
+
+      <!-- Entry 10 -->
+      <article class="entry">
+        <div class="entryHead">
+          <div class="date">Feb 23</div>
+          <p class="text"><span class="muted"></span></p>
+        </div>
+        <ul class="lines">
+          <li>This is not just about plants</li>
+          <li>It is a winter plan</li>
+          <li>When the sky is dim I turn on my own sun</li>
+          <li>When I miss nature I grow a small piece of it</li>
+          <li>When days feel the same I watch something slowly change</li>
+        </ul>
+        <div class="photos">
+          <figure class="ph"><img src="../assets/garden/28.jpeg" alt=""><figcaption class="cap">28</figcaption></figure>
+          <figure class="ph"><img src="../assets/garden/29.jpeg" alt=""><figcaption class="cap">29</figcaption></figure>
+        </div>
+      </article>
+
+    </section>
+  </div>
+</body>
+</html>

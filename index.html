@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Animal Farm</title>
+  <link rel="stylesheet" href="assets/site.css">
+
+  <!-- ✅ Intro 覆盖层样式（加在这里） -->
+  <style>
+    /* Intro overlay */
+    .intro {
+      position: fixed;
+      inset: 0;
+      z-index: 999999; /* 保证永远最上层 */
+      background: #000;
+      overflow: hidden;
+      cursor: pointer;
+      transition: opacity .45s ease, visibility .45s ease;
+    }
+    .intro.is-hidden{
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .intro .introImage{
+      position:absolute;
+      inset:0;
+      background: url("assets/farm/intro.jpg") center/cover no-repeat;
+      transform: scale(1.02);
+    }
+
+    .intro .introVeil{
+      position:absolute;
+      inset:0;
+      background:#000;
+
+      -webkit-mask-image: radial-gradient(circle var(--r, 0px) at var(--x, 50%) var(--y, 50%),
+        transparent 0%,
+        transparent 55%,
+        rgba(0,0,0,0.65) 75%,
+        black 100%);
+      mask-image: radial-gradient(circle var(--r, 0px) at var(--x, 50%) var(--y, 50%),
+        transparent 0%,
+        transparent 55%,
+        rgba(0,0,0,0.65) 75%,
+        black 100%);
+
+      will-change: mask-image, -webkit-mask-image;
+    }
+
+    .intro .introHint{
+      position: fixed;
+      left: 16px;
+      bottom: 16px;
+      color: #fff;
+      opacity: .7;
+      font: 14px/1.4 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      pointer-events: none;
+      mix-blend-mode: screen;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ✅ Intro 覆盖层（加在 body 最上面） -->
+  <div class="intro" id="intro" aria-label="Enter">
+    <div class="introImage" id="introImage"></div>
+    <div class="introVeil" id="introVeil"></div>
+    <div class="introHint">move to reveal · click to enter</div>
+  </div>
+
+  <div class="wrap">
+
+    <div class="topbar">
+      <div class="brand">
+        <h1>Animal Farm</h1>
+        <p>George Orwell</p>
+      </div>
+
+      <div class="nav">
+        <a class="btn" href="zine/field-notes.html">Field Notes</a>
+      </div>
+    </div>
+
+    <div class="mediaDock" id="mediaDock">
+      <div class="mediaFrame" id="mediaFrame"></div>
+      <div class="mediaCap" id="mediaCap">hover a zone</div>
+    </div>
+
+    <div class="map" id="map">
+      <div class="mapboard card">
+        <div class="mapbg"></div>
+
+        <a class="region r1" href="zine/text-a.html">
+          <h3>Chapter I</h3>
+          <p>Mr. Jones, of the Manor Farm, had locked the hen-houses ...</p>
+          <span class="btn">Enter</span>
+          <div class="pop">
+            <img
+              src="assets/media/cow/cow1.jpg"
+              data-images="assets/media/cow/cow1.jpg|assets/media/cow/cow2.jpg|assets/media/cow/cow5.jpg|assets/media/cow/cow6.jpg|assets/media/cow/cow7.jpg|assets/media/cow/cow8.jpg|assets/media/cow/cow9.jpg|assets/media/cow/cow10.jpg"
+              alt="Pasture A preview"
+            >
+          </div>
+        </a>
+
+        <a class="region r2" href="zine/text-b.html">
+          <h3>Chapter II</h3>
+          <p>Three nights later old Major died peacefully...</p>
+          <span class="btn">Enter</span>
+          <div class="pop">
+            <img
+              src="assets/media/rabbit/rabbit1.jpg"
+              data-images="assets/media/rabbit/rabbit1.jpg|assets/media/rabbit/rabbit2.jpg|assets/media/rabbit/rabbit3.jpg|assets/media/rabbit/rabbit4.jpg|assets/media/rabbit/rabbit5.jpg|assets/media/rabbit/rabbit6.jpg|assets/media/rabbit/rabbit7.jpg|assets/media/rabbit/rabbit8.jpg|assets/media/rabbit/rabbit9.jpg|assets/media/rabbit/rabbit10.jpg|assets/media/rabbit/rabbit11.jpg|assets/media/rabbit/rabbit12.jpg|assets/media/rabbit/rabbit13.jpg|assets/media/rabbit/rabbit14.jpg|assets/media/rabbit/rabbit15.jpg"
+              alt="Observation Deck preview">
+          </div>
+        </a>
+
+        <a class="region r3" href="zine/text-c.html">
+          <h3>Chapter III</h3>
+          <p>How they toiled and sweated to get the hay in!</p>
+          <span class="btn">Enter</span>
+          <div class="pop">
+            <img
+              src="assets/media/sheep/sheep1.jpg"
+              data-images="assets/media/sheep/sheep1.jpg|assets/media/sheep/sheep2.jpg|assets/media/sheep/sheep3.jpg|assets/media/sheep/sheep4.jpg|assets/media/sheep/sheep5.jpg|assets/media/sheep/sheep6.jpg|assets/media/sheep/sheep7.jpg|assets/media/sheep/sheep8.jpg|assets/media/sheep/sheep9.jpg|assets/media/sheep/sheep10.jpg|assets/media/sheep/sheep11.jpg|assets/media/sheep/sheep12.jpg|assets/media/sheep/sheep13.jpg|assets/media/sheep/sheep14.jpg|assets/media/sheep/sheep15.jpg"
+              alt="Metaphor Shed preview">
+          </div>
+        </a>
+
+        <a class="region r4" href="zine/text-d.html">
+          <h3>Chapter IV</h3>
+          <p>By the late summer the news of what had happened ...</p>
+          <span class="btn">Enter</span>
+          <div class="pop">
+            <img
+              src="assets/media/dog/dog1.jpg"
+              data-images="assets/media/dog/dog1.jpg|assets/media/dog/dog2.jpg|assets/media/dog/dog3.jpg|assets/media/dog/dog4.jpg|assets/media/dog/dog5.jpg|assets/media/dog/dog6.jpg|assets/media/dog/dog7.jpg|assets/media/dog/dog8.jpg"
+              alt="Sign Garden preview">
+          </div>
+        </a>
+
+        <a class="region r5" href="zine/text-e.html">
+          <h3>Chapter V</h3>
+          <p>As winter drew on, Mollie became more ...</p>
+          <span class="btn">Enter</span>
+          <div class="pop">
+            <img
+              src="assets/media/duck/duck1.jpg"
+              data-images="assets/media/duck/duck1.jpg|assets/media/duck/duck2.jpg|assets/media/duck/duck3.jpg|assets/media/duck/duck4.jpg|assets/media/duck/duck5.jpg|assets/media/duck/duck6.jpg|assets/media/duck/duck7.jpg|assets/media/duck/duck8.jpg"
+              alt="Machine Barn preview">
+          </div>
+        </a>
+
+        <a class="region r6" href="zine/text-f.html">
+          <h3>Chapter VI</h3>
+          <p>All that year the animals worked like slaves...</p>
+          <span class="btn">Open</span>
+          <div class="pop">
+            <img
+              src="assets/media/pig/pig1.jpg"
+              data-images="assets/media/pig/pig1.jpg|assets/media/pig/pig2.jpg|assets/media/pig/pig3.jpg|assets/media/pig/pig4.jpg|assets/media/pig/pig5.jpg"
+              alt="Directory preview">
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    /* ✅ Intro 逻辑（修正版：不再覆盖背景图） */
+    const MAP_TARGET  = "#map"; // ← 改成 "zine/home.html" 也行
+
+    const intro = document.getElementById("intro");
+    const veil = document.getElementById("introVeil");
+
+    let r = 0;
+    const rMax = 280;  // 最大露出半径
+    const grow = 14;   // 移动增长速度
+
+    function setSpot(cx, cy){
+      const x = (cx / window.innerWidth) * 100;
+      const y = (cy / window.innerHeight) * 100;
+      r = Math.min(rMax, r + grow);
+
+      veil.style.setProperty("--x", x + "%");
+      veil.style.setProperty("--y", y + "%");
+      veil.style.setProperty("--r", r + "px");
+    }
+
+    window.addEventListener("mousemove", (e) => setSpot(e.clientX, e.clientY), {passive:true});
+    window.addEventListener("touchmove", (e) => {
+      if(!e.touches || !e.touches[0]) return;
+      setSpot(e.touches[0].clientX, e.touches[0].clientY);
+    }, {passive:true});
+
+    // 初始全黑
+    veil.style.setProperty("--r", "0px");
+    veil.style.setProperty("--x", "50%");
+    veil.style.setProperty("--y", "50%");
+
+    intro.addEventListener("click", () => {
+      // 方案 A：点击后淡出 intro，然后滚动到 map（同页）
+      intro.classList.add("is-hidden");
+      if (MAP_TARGET.startsWith("#")) {
+        const el = document.querySelector(MAP_TARGET);
+        if (el) el.scrollIntoView({behavior:"smooth", block:"start"});
+      } else {
+        // 方案 B：点击后跳转到 map 页面
+        window.location.href = MAP_TARGET;
+      }
+    });
+  </script>
+
+  <script>
+    /* ✅ 你原本的 region hover 换图（保留） */
+    const INTERVAL = 650;
+
+    document.querySelectorAll(".region").forEach(region => {
+      const img = region.querySelector(".pop img[data-images]");
+      if (!img) return;
+
+      const list = img.dataset.images
+        .split("|")
+        .map(s => s.trim())
+        .filter(Boolean);
+
+      if (list.length <= 1) return;
+
+      let i = 0;
+      let timer = null;
+
+      const start = () => {
+        if (timer) return;
+        const current = img.getAttribute("src");
+        const idx = list.indexOf(current);
+        i = idx >= 0 ? idx : 0;
+
+        timer = setInterval(() => {
+          i = (i + 1) % list.length;
+          img.src = list[i];
+        }, INTERVAL);
+      };
+
+      const stop = () => {
+        if (!timer) return;
+        clearInterval(timer);
+        timer = null;
+      };
+
+      region.addEventListener("mouseenter", start);
+      region.addEventListener("mouseleave", stop);
+    });
+  </script>
+
+  <script>
+    /* ✅ 合并你重复的 mapboard mousemove（只留一段） */
+    const board = document.querySelector(".mapboard");
+    if (board) {
+      board.addEventListener("mousemove", (e) => {
+        const r = board.getBoundingClientRect();
+        const x = ((e.clientX - r.left) / r.width) * 100;
+        const y = ((e.clientY - r.top) / r.height) * 100;
+        board.style.setProperty("--ox", x + "%");
+        board.style.setProperty("--oy", y + "%");
+      });
+    }
+  </script>
+
+</body>
+</html>
